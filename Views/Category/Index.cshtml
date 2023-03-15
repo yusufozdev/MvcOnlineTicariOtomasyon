@@ -22,9 +22,9 @@
             <td>
                 @k.CategoryName
             </td>
-            <td><a href="#" class="btn btn-danger">Sil</a></td>
-            <td><a href="#" class="btn btn-success">Güncelle</a></td>
+            <td><a href="/Category/KategoriSil/@k.CategoryID" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Category/KategoriGetir/@k.CategoryID" class="btn btn-success">Güncelle</a></td>
         </tr>
     }
 </table>
-<button class="btn btn-primary">Yeni Kategori</button>
+<a href="/Category/KategoriEkle" class="btn btn-primary">Kategori Ekle</a>

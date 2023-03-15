@@ -29,7 +29,7 @@ namespace MvcOnlineTicariOtomasyon.Models.Classes
         [StringLength(250)]
         public string ProductImage { get; set; }
 
-        public Category Category { get; set; }
+        public virtual Category Category { get; set; }
         public ICollection<SalesMovement> SalesMovements { get; set; }
 
     }

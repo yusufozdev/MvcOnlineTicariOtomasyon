@@ -18,14 +18,40 @@ namespace MvcOnlineTicariOtomasyon.Controllers
             return View(degerler);
         }
 
+        [HttpGet]
         public ActionResult KategoriEkle() 
         { 
             return View();
         }
 
-        public ActionResult KategoriEkle()
+        [HttpPost]
+        public ActionResult KategoriEkle(Category k)
         {
-            return View();
+            c.Categories.Add(k);
+            c.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult KategoriSil(int id)
+        {
+            var ktg = c.Categories.Find(id);
+            c.Categories.Remove(ktg);
+            c.SaveChanges();
+            return RedirectToAction("Index");
+        }
+        
+        public ActionResult KategoriGetir(int id)
+        {
+            var kategori = c.Categories.Find(id);
+            return View("KategoriGetir",kategori);
+        }
+
+        public ActionResult KategoriGüncelle(Category k)
+        {
+            var ktgr = c.Categories.Find(k.CategoryID);
+            ktgr.CategoryName = k.CategoryName;
+            c.SaveChanges();
+            return RedirectToAction("Index");
         }
     }
 }
